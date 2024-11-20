@@ -1,0 +1,90 @@
+{
+    "required_courses": {
+        "Mathematics": [
+            "MATH 31A",
+            "MATH 31B",
+            "MATH 32A",
+            "MATH 32B",
+            "MATH 33A",
+            "MATH 42",
+            "MATH 115A",
+            "MATH 131A",
+            "MATH 118",
+            "MATH 156"
+        ],
+        "Statistics": [
+            "STATS 20",
+            "STATS 21",
+            "STATS 101A",
+            "STATS 101C",
+            "STATS 102A",
+            "STATS 102B",
+            "STATS 147",
+            "STATS 184"
+        ],
+        "Programming": [
+            "PIC 10A"
+        ]
+    },
+    "requirements_with_options": {
+        "Pre-Major Statistics Option": [
+            "STATS 10",
+            "STATS 12",
+            "STATS 13",
+            "STATS 15"
+        ],
+        "Probability and Statistics Sequence": {
+            "Sequence_A": [
+                "MATH 170E",
+                "MATH 170S"
+            ],
+            "Sequence_B": [
+                "STATS 100A",
+                "STATS 100B"
+            ]
+        },
+        "Statistics Elective": [
+            "STATS 100C",
+            "STATS 101B",
+            "STATS 102C",
+            "STATS C151",
+            "STATS M154",
+            "STATS C155",
+            "STATS 157",
+            "STATS C161",
+            "STATS C163",
+            "STATS 170",
+            "STATS M171",
+            "STATS C173",
+            "STATS 175",
+            "STATS C180",
+            "STATS 182",
+            "STATS C183",
+            "STATS 184",
+            "STATS 186",
+            "STATS 188SA",
+            "STATS 188SC",
+            "STATS 189",
+            "STATS 189HC",
+            "STATS 195",
+            "STATS 199"
+        ],
+        "Mathematics Elective": [
+            "MATH 151A",
+            "MATH 151B",
+            "MATH 164",
+            "MATH 168",
+            "MATH 171",
+            "MATH 174E",
+            "MATH 178A",
+            "MATH 178B",
+            "MATH 178C",
+            "MATH 179",
+            "MATH 182"
+        ],
+        "Capstone Course": [
+            "MATH M148",
+            "STATS M148"
+        ]
+    }
+}
