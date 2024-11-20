@@ -1,30 +1,40 @@
 import json
+import pandas as pd
 from sentence_transformers import SentenceTransformer
-import numpy as np
 
-model = SentenceTransformer('all-MiniLM-L6-v2')  # A small, efficient embedding model
+# Load the SentenceTransformer model
+model = SentenceTransformer('all-MiniLM-L6-v2')
 
 with open("data_theory_req.json", "r") as file:
     data = json.load(file)
-
+    
+# Function to create embeddings for a course
 def get_embedding(course_name):
-    return model.encode(course_name).tolist()  # Convert to Python list for JSON compatibility
+    return model.encode(course_name)
 
-# Recursive function to handle different levels of the JSON structure
-def vectorize_courses(data):
-    vectorized = {}
+# Flatten JSON and vectorize courses into a tabular structure
+records = []
+def vectorize_courses(data, category_path=""):
     for key, value in data.items():
-        if isinstance(value, dict):  # If the value is another dictionary, recurse
-            vectorized[key] = vectorize_courses(value)
-        elif isinstance(value, list):  # If the value is a list, embed each course
-            vectorized[key] = {course: get_embedding(course) for course in value}
-    return vectorized
+        if isinstance(value, dict):  # Nested categories
+            vectorize_courses(value, category_path=f"{category_path}/{key}" if category_path else key)
+        elif isinstance(value, list):  # List of courses
+            for course in value:
+                embedding = get_embedding(course)
+                records.append({
+                    "category": category_path,
+                    "course_name": course,
+                    "embedding": embedding
+                })
 
-# Vectorize the data
-vectorized_data = vectorize_courses(data)
+# Process and vectorize courses
+vectorize_courses(data)
 
-# Save the vectorized data to a JSON file
-with open("vectorized_courses.json", "w") as outfile:
-    json.dump(vectorized_data, outfile)
+# Convert to a DataFrame for better handling and viewing
+df = pd.DataFrame(records)
 
-print("Vectorization complete. Data saved to 'vectorized_courses.json'.")
+# Save DataFrame as a CSV or JSON for later use
+df.to_csv("vectorized_courses.csv", index=False)
+df.to_json("vectorized_courses.json", orient="records", lines=True)
+
+print("Vectorization complete. Data saved to 'vectorized_courses.csv' and 'vectorized_courses.json'.")
