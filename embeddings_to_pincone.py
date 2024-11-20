@@ -1,14 +1,13 @@
 import os
 from pinecone import Pinecone, ServerlessSpec
+import json 
 
 # Set your Pinecone API key
 api_key = "pcsk_2uKCF8_5LSz4hbio5WP681G6ThuJp3vBDxx7tuWSrM2RXrviFnwe7LmvEB5YVDGmm3mN5w" 
-environment = "your_environment"  # Replace with your environment, e.g., "us-west1-gcp"
 
 # Initialize Pinecone
 pc = Pinecone(
     api_key=api_key,
-    environment=environment
 )
 
 # Create or connect to the index
@@ -20,30 +19,45 @@ if index_name not in pc.list_indexes().names():
         metric='cosine',  # Use cosine similarity or another metric
         spec=ServerlessSpec(
             cloud='aws',
-            region='us-west-2'  # Replace with your actual region
+            region='us-east-1'  # Replace with your actual region
         )
     )
 
 # Connect to the index
-index = pc.index(index_name)
+index = pc.Index(index_name)
 
-# Load vectorized data
-import json
-with open("vectorized_courses.json", "r") as file:
-    vectorized_data = json.load(file)
-
-# Upsert data into Pinecone
+# Load JSON Lines and upsert data into Pinecone
 batch_size = 100
 upserts = []
-for record in vectorized_data:
-    upserts.append({
-        "id": record["course_name"],  # Unique ID
-        "values": record["embedding"],  # Embedding vector
-        "metadata": {"category": record["category"]}  # Metadata for filtering
-    })
+try:
+    with open("vectorized_courses_input.jsonl", "r") as file:
+        for line in file:
+            try:
+                record = json.loads(line.strip())
+                if "course_name" in record and "embedding" in record and "category" in record:
+                    upserts.append({
+                        "id": record["course_name"],
+                        "values": record["embedding"],
+                        "metadata": {"category": record["category"]}
+                    })
+                else:
+                    print(f"Missing keys in record: {record}")
 
-# Process in batches
-for i in range(0, len(upserts), batch_size):
-    index.upsert(vectors=upserts[i:i + batch_size])
+                # Perform upserts in batches
+                if len(upserts) == batch_size:
+                    index.upsert(vectors=upserts)
+                    print(f"Upserted {len(upserts)} records.")
+                    upserts = []  # Clear the batch
 
-print("Data successfully upserted into Pinecone!")
+            except json.JSONDecodeError as e:
+                print(f"Error decoding JSON line: {e}")
+
+    # Final upsert
+    if upserts:
+        index.upsert(vectors=upserts)
+        print(f"Upserted {len(upserts)} remaining records.")
+
+    print(f"Data successfully upserted into index '{index_name}'.")
+
+except Exception as e:
+    print(f"An error occurred: {e}")
