@@ -1,90 +1,90 @@
 {
     "required_courses": {
         "Mathematics": [
-            "MATH 31A",
-            "MATH 31B",
-            "MATH 32A",
-            "MATH 32B",
-            "MATH 33A",
-            "MATH 42",
-            "MATH 115A",
-            "MATH 131A",
-            "MATH 118",
-            "MATH 156"
+            {"course": "MATH 31A", "description": ""},
+            {"course": "MATH 31B", "description": ""},
+            {"course": "MATH 32A", "description": ""},
+            {"course": "MATH 32B", "description": ""},
+            {"course": "MATH 33A", "description": ""},
+            {"course": "MATH 42", "description": ""},
+            {"course": "MATH 115A", "description": ""},
+            {"course": "MATH 131A", "description": ""},
+            {"course": "MATH 118", "description": ""},
+            {"course": "MATH 156", "description": ""}
         ],
         "Statistics": [
-            "STATS 20",
-            "STATS 21",
-            "STATS 101A",
-            "STATS 101C",
-            "STATS 102A",
-            "STATS 102B",
-            "STATS 147",
-            "STATS 184"
+            {"course": "STATS 20", "description": ""},
+            {"course": "STATS 21", "description": ""},
+            {"course": "STATS 101A", "description": ""},
+            {"course": "STATS 101C", "description": ""},
+            {"course": "STATS 102A", "description": ""},
+            {"course": "STATS 102B", "description": ""},
+            {"course": "STATS 147", "description": ""},
+            {"course": "STATS 184", "description": ""}
         ],
         "Programming": [
-            "PIC 10A"
+            {"course": "PIC 10A", "description": ""}
         ]
     },
     "requirements_with_options": {
         "Pre-Major Statistics Option": [
-            "STATS 10",
-            "STATS 12",
-            "STATS 13",
-            "STATS 15"
+            {"course": "STATS 10", "description": ""},
+            {"course": "STATS 12", "description": ""},
+            {"course": "STATS 13", "description": ""},
+            {"course": "STATS 15", "description": ""}
         ],
         "Probability and Statistics Sequence": {
             "Sequence_A": [
-                "MATH 170E",
-                "MATH 170S"
+                {"course": "MATH 170E", "description": ""},
+                {"course": "MATH 170S", "description": ""}
             ],
             "Sequence_B": [
-                "STATS 100A",
-                "STATS 100B"
+                {"course": "STATS 100A", "description": ""},
+                {"course": "STATS 100B", "description": ""}
             ]
         },
         "Statistics Elective": [
-            "STATS 100C",
-            "STATS 101B",
-            "STATS 102C",
-            "STATS C151",
-            "STATS M154",
-            "STATS C155",
-            "STATS 157",
-            "STATS C161",
-            "STATS C163",
-            "STATS 170",
-            "STATS M171",
-            "STATS C173",
-            "STATS 175",
-            "STATS C180",
-            "STATS 182",
-            "STATS C183",
-            "STATS 184",
-            "STATS 186",
-            "STATS 188SA",
-            "STATS 188SC",
-            "STATS 189",
-            "STATS 189HC",
-            "STATS 195",
-            "STATS 199"
+            {"course": "STATS 100C", "description": ""},
+            {"course": "STATS 101B", "description": ""},
+            {"course": "STATS 102C", "description": ""},
+            {"course": "STATS C151", "description": ""},
+            {"course": "STATS M154", "description": ""},
+            {"course": "STATS C155", "description": ""},
+            {"course": "STATS 157", "description": ""},
+            {"course": "STATS C161", "description": ""},
+            {"course": "STATS C163", "description": ""},
+            {"course": "STATS 170", "description": ""},
+            {"course": "STATS M171", "description": ""},
+            {"course": "STATS C173", "description": ""},
+            {"course": "STATS 175", "description": ""},
+            {"course": "STATS C180", "description": ""},
+            {"course": "STATS 182", "description": ""},
+            {"course": "STATS C183", "description": ""},
+            {"course": "STATS 184", "description": ""},
+            {"course": "STATS 186", "description": ""},
+            {"course": "STATS 188SA", "description": ""},
+            {"course": "STATS 188SC", "description": ""},
+            {"course": "STATS 189", "description": ""},
+            {"course": "STATS 189HC", "description": ""},
+            {"course": "STATS 195", "description": ""},
+            {"course": "STATS 199", "description": ""}
         ],
         "Mathematics Elective": [
-            "MATH 151A",
-            "MATH 151B",
-            "MATH 164",
-            "MATH 168",
-            "MATH 171",
-            "MATH 174E",
-            "MATH 178A",
-            "MATH 178B",
-            "MATH 178C",
-            "MATH 179",
-            "MATH 182"
+            {"course": "MATH 151A", "description": ""},
+            {"course": "MATH 151B", "description": ""},
+            {"course": "MATH 164", "description": ""},
+            {"course": "MATH 168", "description": ""},
+            {"course": "MATH 171", "description": ""},
+            {"course": "MATH 174E", "description": ""},
+            {"course": "MATH 178A", "description": ""},
+            {"course": "MATH 178B", "description": ""},
+            {"course": "MATH 178C", "description": ""},
+            {"course": "MATH 179", "description": ""},
+            {"course": "MATH 182", "description": ""}
         ],
         "Capstone Course": [
-            "MATH M148",
-            "STATS M148"
+            {"course": "MATH M148", "description": ""},
+            {"course": "STATS M148", "description": ""}
         ]
     }
 }
