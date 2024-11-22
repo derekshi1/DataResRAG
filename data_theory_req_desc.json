@@ -1,7 +1,7 @@
 {
     "required_courses": {
         "Mathematics": [
-            {"course": "MATH 31A", "description": ""},
+            {"course": "MATH 31A", "description": "Differential and Integral Calculus. Introduction to differential and integral calculus of functions of one variable, including transcendental functions"},
             {"course": "MATH 31B", "description": ""},
             {"course": "MATH 32A", "description": ""},
             {"course": "MATH 32B", "description": ""},
