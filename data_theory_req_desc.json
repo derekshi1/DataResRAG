@@ -1,0 +1,90 @@
+{
+    "required_courses": {
+        "Mathematics": [
+            {"course": "MATH 31A", "description": "Differential and Integral Calculus. Introduction to differential and integral calculus of functions of one variable, including transcendental functions"},
+            {"course": "MATH 31B", "description": ""},
+            {"course": "MATH 32A", "description": ""},
+            {"course": "MATH 32B", "description": ""},
+            {"course": "MATH 33A", "description": ""},
+            {"course": "MATH 42", "description": ""},
+            {"course": "MATH 115A", "description": ""},
+            {"course": "MATH 131A", "description": ""},
+            {"course": "MATH 118", "description": ""},
+            {"course": "MATH 156", "description": ""}
+        ],
+        "Statistics": [
+            {"course": "STATS 20", "description": ""},
+            {"course": "STATS 21", "description": ""},
+            {"course": "STATS 101A", "description": ""},
+            {"course": "STATS 101C", "description": ""},
+            {"course": "STATS 102A", "description": ""},
+            {"course": "STATS 102B", "description": ""},
+            {"course": "STATS 147", "description": ""},
+            {"course": "STATS 184", "description": ""}
+        ],
+        "Programming": [
+            {"course": "PIC 10A", "description": ""}
+        ]
+    },
+    "requirements_with_options": {
+        "Pre-Major Statistics Option": [
+            {"course": "STATS 10", "description": ""},
+            {"course": "STATS 12", "description": ""},
+            {"course": "STATS 13", "description": ""},
+            {"course": "STATS 15", "description": ""}
+        ],
+        "Probability and Statistics Sequence": {
+            "Sequence_A": [
+                {"course": "MATH 170E", "description": ""},
+                {"course": "MATH 170S", "description": ""}
+            ],
+            "Sequence_B": [
+                {"course": "STATS 100A", "description": ""},
+                {"course": "STATS 100B", "description": ""}
+            ]
+        },
+        "Statistics Elective": [
+            {"course": "STATS 100C", "description": ""},
+            {"course": "STATS 101B", "description": ""},
+            {"course": "STATS 102C", "description": ""},
+            {"course": "STATS C151", "description": ""},
+            {"course": "STATS M154", "description": ""},
+            {"course": "STATS C155", "description": ""},
+            {"course": "STATS 157", "description": ""},
+            {"course": "STATS C161", "description": ""},
+            {"course": "STATS C163", "description": ""},
+            {"course": "STATS 170", "description": ""},
+            {"course": "STATS M171", "description": ""},
+            {"course": "STATS C173", "description": ""},
+            {"course": "STATS 175", "description": ""},
+            {"course": "STATS C180", "description": ""},
+            {"course": "STATS 182", "description": ""},
+            {"course": "STATS C183", "description": ""},
+            {"course": "STATS 184", "description": ""},
+            {"course": "STATS 186", "description": ""},
+            {"course": "STATS 188SA", "description": ""},
+            {"course": "STATS 188SC", "description": ""},
+            {"course": "STATS 189", "description": ""},
+            {"course": "STATS 189HC", "description": ""},
+            {"course": "STATS 195", "description": ""},
+            {"course": "STATS 199", "description": ""}
+        ],
+        "Mathematics Elective": [
+            {"course": "MATH 151A", "description": ""},
+            {"course": "MATH 151B", "description": ""},
+            {"course": "MATH 164", "description": ""},
+            {"course": "MATH 168", "description": ""},
+            {"course": "MATH 171", "description": ""},
+            {"course": "MATH 174E", "description": ""},
+            {"course": "MATH 178A", "description": ""},
+            {"course": "MATH 178B", "description": ""},
+            {"course": "MATH 178C", "description": ""},
+            {"course": "MATH 179", "description": ""},
+            {"course": "MATH 182", "description": ""}
+        ],
+        "Capstone Course": [
+            {"course": "MATH M148", "description": ""},
+            {"course": "STATS M148", "description": ""}
+        ]
+    }
+}
