@@ -51,4 +51,4 @@ df = pd.DataFrame(records)
 df.to_csv("vectorized_courses_input.csv", index=False)
 df.to_json("vectorized_courses_input.json", orient="records", lines=True)
 
-print("Vectorization complete. Data saved to 'vectorized_courses_input.csv' and 'vectorized_courses_input.json'.")
+print("Vectorization complete. Data saved to 'vectorized_courses_input.csv' and 'vectorized_courses_input.jsonl'.")
