@@ -2,7 +2,6 @@ import os
 from pinecone import Pinecone, ServerlessSpec
 import json 
 
-# Set your Pinecone API key
 api_key = "pcsk_2uKCF8_5LSz4hbio5WP681G6ThuJp3vBDxx7tuWSrM2RXrviFnwe7LmvEB5YVDGmm3mN5w" 
 
 # Initialize Pinecone
@@ -19,7 +18,7 @@ if index_name not in pc.list_indexes().names():
         metric='cosine',  # Use cosine similarity or another metric
         spec=ServerlessSpec(
             cloud='aws',
-            region='us-east-1'  # Replace with your actual region
+            region='us-east-1'  
         )
     )
 
