@@ -6,7 +6,7 @@ from sentence_transformers import SentenceTransformer
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
 # Load the JSON file containing courses and descriptions
-with open("pinecone database stuff/dt_course_descriptions.json", "r") as file:
+with open("pinecone_database_stuff/dt_course_descriptions.json", "r") as file:
     data = json.load(file)
 
 # Function to create embeddings for a course description
