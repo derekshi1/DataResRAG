@@ -31,13 +31,14 @@ try:
         for line in file:
             try:
                 record = json.loads(line.strip())
-                if "course_name" in record and "embedding" in record and "description" in record:
+                # Check if all required fields are present
+                if "course_id" in record and "embedding" in record and "description" in record:
                     upserts.append({
-                        "id": record["course_name"],  # Use unique course_name as ID
+                        "id": record["course_id"],  # Unique course ID
                         "values": record["embedding"],  # Embedding vector
                         "metadata": {
                             "description": record["description"],  # Course description
-                            "category": record["category"]  # Course category
+                            "units": record.get("units", "Unknown")  # Optional units
                         }
                     })
                 else:
@@ -52,12 +53,12 @@ try:
             except json.JSONDecodeError as e:
                 print(f"Error decoding JSON line: {e}")
 
-    # Final upsert
+    # Final upsert for remaining records
     if upserts:
         index.upsert(vectors=upserts)
         print(f"Upserted {len(upserts)} remaining records.")
 
-    print(f"Description embeddings successfully upserted into index '{index_name}'.")
+    print(f"Data successfully upserted into index '{index_name}'.")
 
 except Exception as e:
     print(f"An error occurred: {e}")
