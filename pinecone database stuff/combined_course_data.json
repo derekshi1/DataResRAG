@@ -1,0 +1,386 @@
+[
+    {
+        "course_id": "MATH 31A",
+        "description": "Description:Lecture, three hours; discussion, one hour. Preparation: at least three and one half years of high school mathematics (including some coordinate geometry and trigonometry). Requisite: successful completion of Mathematics Diagnostic Test or course 1 with grade of C- or better. Differential calculus and applications; introduction to integration. P/NP or letter grading.Units:4.0",
+        "category": "Required Mathematics",
+        "sequence": null
+    },
+    {
+        "course_id": "MATH 31B",
+        "description": "Description:Lecture, three hours; discussion, one hour. Requisite: course 31A with grade of C- or better. Not open for credit to students with credit for course 3B. Transcendental functions; methods and applications of integration; sequences and series. P/NP or letter grading.Units:4.0",
+        "category": "Required Mathematics",
+        "sequence": null
+    },
+    {
+        "course_id": "MATH 32A",
+        "description": "Description:Lecture, three hours; discussion, one hour. Enforced requisite: course 31A with grade of C- or better. Introduction to differential calculus of several variables, vector field theory. P/NP or letter grading.Units:4.0",
+        "category": "Required Mathematics",
+        "sequence": null
+    },
+    {
+        "course_id": "MATH 32B",
+        "description": "Description:Lecture, three hours; discussion, one hour. Enforced requisites: courses 31B and 32A, with grades of C- or better. Introduction to integral calculus of several variables, line and surface integrals. P/NP or letter grading.Units:4.0",
+        "category": "Required Mathematics",
+        "sequence": null
+    },
+    {
+        "course_id": "MATH 33A",
+        "description": "Description:Lecture, three hours; discussion, one hour. Enforced requisite: course 3B or 31B or 32A with grade of C- or better. Introduction to linear algebra: systems of linear equations, matrix algebra, linear independence, subspaces, bases and dimension, orthogonality, least-squares methods, determinants, eigenvalues and eigenvectors, matrix diagonalization, and symmetric matrices. P/NP or letter grading.Units:4.0",
+        "category": "Required Mathematics",
+        "sequence": null
+    },
+    {
+        "course_id": "MATH 42",
+        "description": "Description:Lecture, three hours; discussion, one hour. Requisites: courses 31A, 31B, 32A, 32B, 33A, one statistics course from Statistics 10, 12, 13, one programming course from Computer Science 31, Program in Computing 10A, Statistics 20. Introduction to data-driven mathematical modeling combing data analysis with mechanistic modeling of phenomena from various applications. Topics include model formulation, data visualization, nondimensionalization and order-of-magnitude physics, introduction to discrete and continuous dynamical systems, and introduction to discrete and continuous stochastic models. Examples drawn from many fields and practice problems from Mathematical Contest in Modeling. P/NP or letter grading.Units:4.0",
+        "category": "Required Mathematics",
+        "sequence": null
+    },
+    {
+        "course_id": "MATH 115A",
+        "description": "Description:Lecture, three hours; discussion, two hours. Requisite: course 33A. Techniques of proof, abstract vector spaces, linear transformations, and matrices; determinants; inner product spaces; eigenvector theory. P/NP or letter grading.Units:5.0",
+        "category": "Required Mathematics",
+        "sequence": null
+    },
+    {
+        "course_id": "MATH 131A",
+        "description": "Description:Lecture, three hours; discussion, one hour. Requisites: courses 32B, 33B. Recommended: course 115A. Rigorous introduction to foundations of real analysis; real numbers, point set topology in Euclidean space, functions, continuity. P/NP or letter grading.Units:4.0",
+        "category": "Required Mathematics",
+        "sequence": null
+    },
+    {
+        "course_id": "MATH 118",
+        "description": "Description:Lecture, three hours; discussion, one hour. Requisites: courses 42, 115A. Introduction to computational methods for data problems with focus on linear algebra and optimization. Matrix and tensor factorization, PageRank, assorted other topics in matrices, linear programming, unconstrained optimization, constrained optimization, integer optimization, dynamic programming, and stochastic optimization. P/NP or letter grading.Units:4.0",
+        "category": "Required Mathematics",
+        "sequence": null
+    },
+    {
+        "course_id": "MATH 156",
+        "description": "Description:Lecture, three hours; discussion, one hour. Requisites: courses 115A, 164, 170A or 170E or Statistics 100A, and Computer Science 31 or Program in Computing 10A. Strongly recommended requisite: Program in Computing 16A or Statistics 21. Introductory course on mathematical models for pattern recognition and machine learning. Topics include parametric and nonparametric probability distributions, curse of dimensionality, correlation analysis and dimensionality reduction, and concepts of decision theory. Advanced machine learning and pattern recognition problems, including data classification and clustering, regression, kernel methods, artificial neural networks, hidden Markov models, and Markov random fields. Projects in MATLAB to be part of final project presented in class. P/NP or letter grading.Units:4.0",
+        "category": "Required Mathematics",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS 20",
+        "description": "Description:Lecture, three hours; discussion, one hour. Enforced requisite: one course from course 10, 12, 13, 15, Economics 41, or Psychology 100A, or score of 4 or higher on Advanced Placement Statistics Examination. Designed to prepare students for upper-division work in statistics. Introduction to use of R, including data management, simple programming, and statistical graphics in R. P/NP or letter grading.Units:4.0",
+        "category": "Required Statistics",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS 21",
+        "description": "Description:Lecture, three hours; discussion, one hour. Enforced requisite: course 20. Covers use of Python and other technologies for data analysis and data science. Focus on programming with Python and selection of its libraries: NumPy, pandas, matplotlib, and scikit-learn, for purpose of data processing, data cleaning, data analysis, and machine learning. Other technologies covered include Jupyter notebook and Git. Intended for Data Theory majors as introduction to Python language and libraries most frequently used in data science. Letter grading.Units:4.0",
+        "category": "Required Statistics",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS 101A",
+        "description": "Description:Lecture, three hours; discussion, one hour. Requisites: course 10 or 12 or 13 or Economics 41 or score of 4 or higher on Advanced Placement Statistics Examination, and course 20. Recommended: course 102A. Applied regression analysis, with emphasis on general linear model (e.g., multiple regression) and generalized linear model (e.g., logistic regression). Special attention to modern extensions of regression, including regression diagnostics, graphical procedures, and bootstrapping for statistical influence. P/NP or letter grading.Units:4.0",
+        "category": "Required Statistics",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS 101C",
+        "description": "Description:Lecture, three hours; discussion, one hour. Enforced requisite: course 101B. Designed for juniors/seniors. Applied regression analysis, with emphasis on general linear model (e.g., multiple regression) and generalized linear model (e.g., logistic regression). Special attention to modern extensions of regression, including regression diagnostics, graphical procedures, and bootstrapping for statistical influence. P/NP or letter grading.Units:4.0",
+        "category": "Required Statistics",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS 102A",
+        "description": "Description:Lecture, three hours; discussion, one hour. Requisites: courses 10, 20, Mathematics 33A. Introduction to computational statistics through numerical methods and computationally intensive methods for statistical problems. Topics include statistical graphics, root finding, simulation, randomization testing, and bootstrapping. Covers intermediate to advanced programming with R. P/NP or letter grading.Units:4.0",
+        "category": "Required Statistics",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS 102B",
+        "description": "Description:Lecture, three hours; discussion, one hour. Requisites: courses 100B (or Mathematics 170S), 102A, Mathematics 33A. Introduction to computational methods and optimization useful for statisticians. Use of computer programming to solve statistical problems. Topics include vector/matrix computation, multivariate normal distribution, principal component analysis, clustering analysis, gradient-based optimization, EM algorithm for missing data, and dynamic programming. P/NP or letter grading.Units:4.0",
+        "category": "Required Statistics",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS 147",
+        "description": "Description:Lecture, two hours. Requisites: courses 100B or Mathematics 170S, 101A, 101C or Mathematics 156. Limited to seniors. Introduction to variety of tools and technologies used in data science. Prepares students for applied project work. Topics include use of collaborative repository hosting services allowing access control; secure cloud services platforms that cover computing power and database storage; open source artificial intelligence libraries. Recommended to be taken prior to or concurrently with course M148. Letter grading.Units:2.0",
+        "category": "Required Statistics",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS 184",
+        "description": "Description:Lecture, two hours. Requisites: courses 100B or Mathematics 170S, 101A, 101C or Mathematics 156. Consideration of impacts that data collected today have upon individuals and society. Rapid increase in scale and types of data collected has impacted commerce and society in new ways. Consideration of economic, social and ethical, legal and political impacts of data, especially that collected on human behavior. Topics include privacy and data protection, intellectual property and confidentiality, sample selection and algorithms, equality and anti-discrimination. Letter grading.Units:2.0",
+        "category": "Required Statistics",
+        "sequence": null
+    },
+    {
+        "course_id": "PIC 10A",
+        "description": "Description:Lecture, three hours; discussion, two hours; laboratory, eight hours. No prior programming experience assumed. Basic principles of programming, using C++; algorithmic, procedural problem solving; program design and development; basic data types, control structures and functions; functional arrays and pointers; introduction to classes for programmer-defined data types. P/NP or letter grading.Units:5.0",
+        "category": "Required Programming",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS 10",
+        "description": "Description:Lecture, three hours; discussion, one hour; computer laboratory, two hours. Preparation: three years of high school mathematics. Not open for credit to students with credit for course 12, 13, or 15. Introduction to statistical thinking and understanding, including strengths and limitations of basic experimental designs, graphical and numerical summaries of data, inference, regression as descriptive tool. P/NP or letter grading.Units:5.0",
+        "category": "Pre-Major Statistics Option",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS 12",
+        "description": "Description:Lecture, four hours; discussion, one hour; laboratory, one hour. Not open for credit to students with credit for course 10, 11, or 13. Introduction to statistical thinking and understanding, with emphasis on techniques used in geography and environmental science. Underlying logic behind statistical procedures, role of variation in statistical thinking, strengths and limitations of statistical summaries, and fundamental inferential tools. Emphasis on applications in geography and environmental science in laboratory work using professional statistical analysis package, including spatial statistics. P/NP or letter grading.Units:5.0",
+        "category": "Pre-Major Statistics Option",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS 13",
+        "description": "Description:Lecture, three hours; discussion, one hour; laboratory, one hour. Not open for credit to students with credit for course 10, 10H, 11, 12, or 14. Presentation and interpretation of data, descriptive statistics, introduction to correlation and regression and to basic statistical inference (estimation, testing of means and proportions, ANOVA) using both bootstrap methods and parametric models. P/NP or letter grading.Units:5.0",
+        "category": "Pre-Major Statistics Option",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS 15",
+        "description": "Description:Lecture, three hours; discussion, one hour; computer laboratory, one hour. Preparation: three years of high school mathematics. Not open to students with credit for course 10, 12, 13, or former course 10H, 11, or 14. Introduction to data science, including data management, data modeling, data visualization, communication of findings, and reproducible work. P/NP or letter grading.Units:5.0",
+        "category": "Pre-Major Statistics Option",
+        "sequence": null
+    },
+    {
+        "course_id": "MATH 170E",
+        "description": "Description:Lecture, three hours; discussion, one hour. Requisite: course 32B. Highly recommended: course 61 or 70. Not open to students with credit for course 170A, Electrical and Computer Engineering 131A, or Statistics 100A. Introduction to probability theory with emphasis on topics relevant to applications. Topics include discrete (binomial, Poisson, etc.) and continuous (exponential, gamma, chi-square, normal) distributions, bivariate distributions, distributions of functions of random variables (including moment generating functions and central limit theorem). P/NP or letter grading.Units:4.0",
+        "category": "Probability and Statistics Sequence",
+        "sequence": "Sequence_A"
+    },
+    {
+        "course_id": "MATH 170S",
+        "description": "Description:Lecture, three hours; discussion, one hour. Requisites: courses 31A, 31B, and 170A or 170E or Statistics 100A. Not open to students with credit for Statistics 100B. Introduction to statistics. Topics include sampling, estimation (maximum likelihood and Bayesian), properties of estimators, regression, confidence intervals, hypotheses testing, analysis of variance. P/NP or letter grading.Units:4.0",
+        "category": "Probability and Statistics Sequence",
+        "sequence": "Sequence_A"
+    },
+    {
+        "course_id": "STATS 100A",
+        "description": "Description:Lecture, three hours; discussion, one hour. Requisites: Mathematics 32B, 33A. Not open to students with credit for Electrical Engineering 131A or Mathematics 170A; open to graduate students. Students may receive credit for only two of following: course 100A, former course 110A, Biostatistics 100A. Probability distributions, random variables, vectors, and expectation. P/NP or letter grading.Units:4.0",
+        "category": "Probability and Statistics Sequence",
+        "sequence": "Sequence_B"
+    },
+    {
+        "course_id": "STATS 100B",
+        "description": "Description:Lecture, three hours; discussion, one hour. Requisite: course 100A or Mathematics 170A or 170E. Survey sampling, estimation, testing, data summary, one- and two-sample problems. P/NP or letter grading.Units:4.0",
+        "category": "Probability and Statistics Sequence",
+        "sequence": "Sequence_B"
+    },
+    {
+        "course_id": "STATS 100C",
+        "description": "Description:Lecture, three hours; discussion, one hour. Enforced requisite: course 100B or Mathematics 170S. Theory of linear models, with emphasis on matrix approach to linear regression. Topics include model fitting, extra sums of squares principle, testing general linear hypothesis in regression, inference procedures, Gauss/Markov theorem, examination of residuals, principle component regression, stepwise procedures. P/NP or letter grading.Units:4.0",
+        "category": "Statistics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS 101B",
+        "description": "Description:Lecture, three hours; discussion, one hour. Enforced requisite: course 101A. Fundamentals of collecting data, including components of experiments, randomization and blocking, completely randomized design and ANOVA, multiple comparisons, power and sample size, and block designs. P/NP or letter grading.Units:4.0",
+        "category": "Statistics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS 102C",
+        "description": "Description:Lecture, three hours; discussion, one hour. Requisite: course 100B. Introduction to Markov chain Monte Carlo (MCMC) algorithms for scientific computing. Generation of random numbers from specific distribution. Rejection and importance sampling and its role in MCMC. Markov chain theory and convergence properties. Metropolois and Gibbs sampling algorithms. Extensions as simulated tempering. Theoretical understanding of methods and their implementation in concrete computational problems. P/NP or letter grading.Units:4.0",
+        "category": "Statistics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS C151",
+        "description": "Description:Lecture, three hours. Requisites: courses 100C, 101A. Basic principles, analysis of variance, randomized block designs, Latin squares, balanced incomplete block designs, factorial designs, fractional factorial designs, minimum aberration designs, robust parameter designs. Concurrently scheduled with course C225. P/NP or letter grading.Units:4.0",
+        "category": "Statistics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS M154",
+        "description": "Description:(Same as Psychology M144.) Lecture, three hours. Requisite: one course from 10, 11, 12, 13, 14, or Psychology 100A. Selected theories for quantification of psychological, educational, social, and behavioral science data. Classical test, factor analysis, generalizability, item response, optimal scaling, ordinal measurement, computer-adaptive, and related theories. Construction of tests and measures and their reliability, validity, and bias. P/NP or letter grading.Units:4.0",
+        "category": "Statistics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS C155",
+        "description": "Description:Lecture, three hours; discussion, one hour. Designed for upper-division and graduate students in social or life sciences and those who plan to major in Statistics. Topics include methods of sampling from finite populations, sources of sampling and estimation bias, and methods of generating efficient and precise estimates of population characteristics. Practical applications of sampling methods via lectures and hands-on laboratory exercises. Concurrently scheduled with course CM248. P/NP or letter grading.Units:4.0",
+        "category": "Statistics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS 157",
+        "description": "Description:Lecture, three hours; discussion, one hour. Preparation: one engineering, mathematics, physics, or statistics course. Recommended requisite: Program in Computing 20A. Probability and statistics topics in data-driven and interactive manner using open Internet resources. Varieties of data, study-designs, and applications arising from biomedical, research, and simulated data to prepare students for innovative multidisciplinary research. Use of Statistics Online Computational Resource (SOCR). P/NP or letter grading.Units:4.0",
+        "category": "Statistics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS C161",
+        "description": "Description:Lecture, three hours. Requisites: course 100B, Mathematics 33A. Introduction to pattern analysis and machine intelligence designed for advanced undergraduate and graduate students. Concurrently scheduled with course C261. P/NP or letter grading.Units:4.0",
+        "category": "Statistics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS C163",
+        "description": "Description not found.",
+        "category": "Statistics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS 170",
+        "description": "Description:Lecture, three hours; discussion, one hour. Requisite: course 100C or 101B. Exploration of standard methods in temporal and frequency analysis used in analysis of numerical time-series data. Examples provided throughout, and students implement techniques discussed. P/NP or letter grading.Units:4.0",
+        "category": "Statistics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS M171",
+        "description": "Description:(Same as Geography M171.) Lecture, three hours; laboratory, one hour. Requisite: one course from 10, 11, 12, 13, or 14. Introduction to methods of measurement and interpretation of geographic distributions and associations. P/NP or letter grading.Units:4.0",
+        "category": "Statistics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS C173",
+        "description": "Description:Lecture, three hours; discussion, one hour. Requisite: course 100C (may be taken concurrently) or 101B. Geostatistics can be applied to many problems in other disciplines such as hydrology, traffic, air and water pollution, epidemiology, economics, geography, waste management, forestry, oceanography, meteorology, and agriculture and, in general, to every problem where data are observed at geographic locations. Acquisition of knowledge from different areas that can be used to analyze real spatial data problems and to connect geostatistics with geographic information systems (GIS). Concurrently scheduled with course C273. P/NP or letter grading.Units:4.0",
+        "category": "Statistics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS 175",
+        "description": "Description not found.",
+        "category": "Statistics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS C180",
+        "description": "Description:Lecture, three hours; discussion, one hour. Enforced requisites: course 100B, Mathematics 32B. Designed for juniors/seniors. Introduction to statistical inference based on use of Bayes theorem, covering foundational aspects, current applications, and computational issues. Topics include Stein paradox, nonparametric Bayes, and statistical learning. Examples of applications vary according to interests of students. Concurrently scheduled with course C236. P/NP or letter grading.Units:4.0",
+        "category": "Statistics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS 182",
+        "description": "Description not found.",
+        "category": "Statistics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS C183",
+        "description": "Description:Lecture, three hours. Requisite: course 100B. Designed for juniors/seniors and graduate students. Statistical techniques in investment theory using real market data. Portfolio management, risk diversification, efficient frontier, single index model, capital asset pricing model (CAPM), beta of a stock, European and American options (Black/Scholes model, binomial model). Concurrently scheduled with course C283. P/NP or letter grading.Units:4.0",
+        "category": "Statistics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS 184",
+        "description": "Description:Lecture, two hours. Requisites: courses 100B or Mathematics 170S, 101A, 101C or Mathematics 156. Consideration of impacts that data collected today have upon individuals and society. Rapid increase in scale and types of data collected has impacted commerce and society in new ways. Consideration of economic, social and ethical, legal and political impacts of data, especially that collected on human behavior. Topics include privacy and data protection, intellectual property and confidentiality, sample selection and algorithms, equality and anti-discrimination. Letter grading.Units:2.0",
+        "category": "Statistics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS 186",
+        "description": "Description:Seminar, one hour. Discussion of applications of statistics by weekly guest speakers. How statistics is applied to legal questions, economic decisions, arts, environment, and other fields, with some emphasis on career paths in statistics. P/NP grading.Units:0.0",
+        "category": "Statistics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS 188SA",
+        "description": "Description:Tutorial, to be arranged. Enforced corequisite: Honors Collegium 101E. Limited to junior/senior USIE facilitators. Individual study in regularly scheduled meetings with faculty mentor to discuss selected USIE seminar topic, conduct preparatory research, and begin preparation of syllabus. Individual contract with faculty mentor required. May not be repeated. Letter grading.Units:0.0",
+        "category": "Statistics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS 188SC",
+        "description": "Description:Tutorial, to be arranged. Enforced requisite: course 188SB. Limited to junior/senior USIE facilitators. Individual study in regularly scheduled meetings with faculty mentor while facilitating USIE 88S course. Individual contract with faculty mentor required. May not be repeated. Letter grading.Units:0.0",
+        "category": "Statistics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS 189",
+        "description": "Description:Seminar, three hours. Limited to 20 students. Designed as adjunct to undergraduate lecture course. Exploration of topics in greater depth through supplemental readings, papers, or other activities and led by lecture course instructor. May be applied toward honors credit for eligible students. Honors content noted on transcript. P/NP or letter grading.Units:0.0",
+        "category": "Statistics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS 189HC",
+        "description": "Description:Tutorial, three hours. Limited to students in College Honors Program. Designed as adjunct to upper-division lecture course. Individual study with lecture course instructor to explore topics in greater depth through supplemental readings, papers, or other activities. May be repeated for maximum of 4 units. Individual honors contract required. Honors content noted on transcript. Letter grading.Units:0.0",
+        "category": "Statistics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS 195",
+        "description": "Description:Tutorial, four hours. Limited to juniors/seniors. Internship in supervised setting in community agency or business. Students meet on regular basis with instructor and provide periodic reports of their experience. May be repeated for credit. Individual contract with supervising faculty member required. P/NP or letter grading.Units:4.0",
+        "category": "Statistics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS 199",
+        "description": "Description:Tutorial, one hour. Limited to juniors/seniors. Supervised individual research or investigation under guidance of faculty mentor. Culminating paper or project required. May be repeated for credit. Individual contract required. P/NP or letter grading.Units:1.0",
+        "category": "Statistics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "MATH 151A",
+        "description": "Description:Lecture, three hours; discussion, one hour. Requisites: courses 32B, 33B, 115A, Program in Computing 10A or Computer Science 31. Introduction to numerical methods with emphasis on algorithms, analysis of algorithms, and computer implementation issues. Solution of nonlinear equations. Numerical differentiation, integration, and interpolation. Direct methods for solving linear systems. Letter grading.Units:4.0",
+        "category": "Mathematics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "MATH 151B",
+        "description": "Description:Lecture, three hours; discussion, one hour. Requisite: course 151A. Introduction to numerical methods with emphasis on algorithms, analysis of algorithms, and computer implementation issues. Solution of nonlinear equations. Numerical differentiation, integration, and interpolation. Direct methods for solving linear systems. Letter grading.Units:4.0",
+        "category": "Mathematics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "MATH 164",
+        "description": "Description:Lecture, three hours; discussion, one hour. Enforced requisites: courses 115A, 131A. Not open for credit to students with credit for former Electrical Engineering 136. Fundamentals of optimization. Linear programming: basic solutions, simplex method, duality theory. Unconstrained optimization, Newton method for minimization. Nonlinear programming, optimality conditions for constrained problems. Additional topics from linear and nonlinear programming. P/NP or letter grading.Units:4.0",
+        "category": "Mathematics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "MATH 168",
+        "description": "Description:Lecture, three hours; discussion, one hour. Requisites: courses 115A, 170E (or 170A or Electrical and Computer Engineering 131A or Statistics 100A). Introduction to network science (including theory, computation, and applications), which can be used to study complex systems of interacting agents. Study of networks in technology, social, information, biological, and mathematics involving basic structural features of networks, generative models of networks, network summary statistics, centrality, random graphs, clustering, and dynamical processes on networks. Introduction to advanced topics as time permits. P/NP or letter grading.Units:4.0",
+        "category": "Mathematics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "MATH 171",
+        "description": "Description:Lecture, three hours; discussion, one hour. Requisites: courses 33A, 170E (or 170A or Statistics 100A). Discrete Markov chains, continuous-time Markov chains, renewal theory. P/NP or letter grading.Units:4.0",
+        "category": "Mathematics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "MATH 174E",
+        "description": "Description:Lecture, three hours; discussion, one hour. Enforced requisites: courses 33A, and 170A or 170E or Statistics 100A. Not open for credit to students with credit for course 174A, Economics 141, or Statistics C183/C283. Mathematical modeling of financial securities in discrete and continuous time. Forwards, futures, hedging, swaps, uses and pricing (tree models and Black-Scholes) of European and American options, Greeks and numerical methods. P/NP or letter grading.Units:4.0",
+        "category": "Mathematics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "MATH 178A",
+        "description": "Description:Lecture, three hours; discussion, one hour. Requisites: courses 32B, 170A or 170E (or Statistics 100A), 175 or 177. Introduction to mathematics associated with long-term insurance coverages. Single- and multiple-life survival models, annuities, premium calculations and policy values, reserves, pension plans and retirement benefits. Letter grading.Units:4.0",
+        "category": "Mathematics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "MATH 178B",
+        "description": "Description:Lecture, three hours; discussion, one hour. Requisites: courses 170B or 170S (or Statistics 100B), 178A. Multistate models, covers pensions, health insurances, and profit-testing. Study of probability distributions employed most commonly in actuarial theory. Beginning study of short-term actuarial mathematics. Letter grading.Units:4.0",
+        "category": "Mathematics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "MATH 178C",
+        "description": "Description:Lecture, three hours; discussion, one hour. Requisite: course 178B. Study of loss models associated with actuarial problems. Covers severity, frequency, and aggregate loss models, parameter estimation (frequentist, Bayesian), model selection, and credibility. Letter grading.Units:4.0",
+        "category": "Mathematics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "MATH 179",
+        "description": "Description:Lecture, three hours; discussion, one hour. Requisite: course 174E. Continuation of course 174E. In-depth study of risk measures and instruments of risk management in investment portfolios and corporate financial structure. Exotic and real options, value at risk, mean-variance analysis, portfolio optimization, risk analysis, capital asset pricing model, market efficiency, and Modigliani-Miller theory. P/NP or letter grading.Units:4.0",
+        "category": "Mathematics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "MATH 182",
+        "description": "Description:Lecture, three hours; discussion, one hour. Requisite: course 3C or 32A, and 61. Not open for credit to students with credit for Computer Science 180. Graphs, greedy algorithms, divide and conquer algorithms, dynamic programming, network flow. Emphasis on designing efficient algorithms useful in diverse areas such as bioinformatics and allocation of resources. P/NP or letter grading.Units:4.0",
+        "category": "Mathematics Elective",
+        "sequence": null
+    },
+    {
+        "course_id": "MATH M148",
+        "description": "Description:(Same as Statistics M148.) Lecture, four hours. Requisites: courses 118, 131A, 156 or Statistics 101C, 170S or Statistics 100B, Statistics 101A. Students solve real data science problems for community- or campus-based clients. Students work in small groups with faculty member and client to frame client's question in data science terms, create mathematical models, analyze data, and report results. Students may elect to undertake research on foundations of data science, studying advanced topics and writing senior thesis with discussion of findings or survey of literature on chosen foundational topic. Development of collaborative skills, communication principles, and discussion of ethical issues. Letter grading.Units:4.0",
+        "category": "Capstone Course",
+        "sequence": null
+    },
+    {
+        "course_id": "STATS M148",
+        "description": "Description:(Same as Mathematics M148.) Lecture, four hours. Requisites: courses 100B or Mathematics 170S, 101A, 101C or Mathematics 156, Mathematics 118, 131A. Students solve real data science problems for community- or campus-based clients. Students work in small groups with faculty member and client to frame client's question in data science terms, create mathematical models, analyze data, and report results. Students may elect to undertake research on foundations of data science, studying advanced topics and writing senior thesis with discussion of findings or survey of literature on chosen foundational topic. Development of collaborative skills, communication principles, and discussion of ethical issues. Letter grading.Units:4.0",
+        "category": "Capstone Course",
+        "sequence": null
+    }
+]
