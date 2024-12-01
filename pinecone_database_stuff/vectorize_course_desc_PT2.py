@@ -5,8 +5,8 @@ from sentence_transformers import SentenceTransformer
 # Load the SentenceTransformer model
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
-# Load the JSON file containing courses and descriptions
-with open("dt_course_descriptions.json", "r") as file:
+# Load the JSON file containing combined courses data
+with open("combined_course_data.json", "r") as file:
     data = json.load(file)
 
 # Function to create embeddings for a course description
@@ -17,14 +17,12 @@ def get_embedding(text):
 records = []
 
 def vectorize_courses(data):
-    for course_id, description_text in data.items():
-        # Split the description into parts
-        if "Description:" in description_text:
-            description = description_text.split("Description:")[1].split("Units:")[0].strip()
-            units = description_text.split("Units:")[-1].strip()
-        else:
-            description = "No description available"
-            units = "Unknown"
+    for course in data:
+        # Extract information from each course entry
+        course_id = course.get("course_id", "Unknown ID")
+        description = course.get("description", "No description available")
+        category = course.get("category", "Unknown category")
+        sequence = course.get("sequence", "None")
         
         # Generate embedding for the description
         embedding = get_embedding(description)
@@ -33,7 +31,8 @@ def vectorize_courses(data):
         records.append({
             "course_id": course_id,
             "description": description,
-            "units": units,
+            "category": category,
+            "sequence": sequence,
             "embedding": embedding
         })
 
@@ -44,7 +43,7 @@ vectorize_courses(data)
 df = pd.DataFrame(records)
 
 # Save DataFrame as a CSV or JSON for later use
-df.to_csv("vectorized_courses_descriptions.csv", index=False)
-df.to_json("vectorized_courses_descriptions.jsonl", orient="records", lines=True)
+df.to_csv("vectorized_combined_courses.csv", index=False)
+df.to_json("vectorized_combined_courses.jsonl", orient="records", lines=True)
 
-print("Vectorization complete. Data saved to 'vectorized_courses_descriptions.csv' and 'vectorized_courses_descriptions.jsonl'.")
+print("Vectorization complete. Data saved to 'vectorized_combined_courses.csv' and 'vectorized_combined_courses.jsonl'.")
