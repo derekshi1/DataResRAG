@@ -2,14 +2,15 @@ import os
 import numpy as np
 from sentence_transformers import SentenceTransformer
 from pinecone import Pinecone
-from langchain.llms import OpenAI  # Or use Hugging Face API for a free alternative
+from langchain_community.llms import OpenAI
+from langchain_community.chat_models import ChatOpenAI
+from langchain_openai import ChatOpenAI
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
-from langchain.chat_models import ChatOpenAI  # For GPT-3.5-turbo
 
 # Set API keys
 PINECONE_API_KEY = "REDACTED"
-OPENAI_API_KEY = "YOUR_OPENAI_API_KEY"  # Replace with your OpenAI API key
+OPENAI_API_KEY = "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"  # Replace with your OpenAI API key
 
 # Initialize Pinecone
 pc = Pinecone(api_key=PINECONE_API_KEY)
