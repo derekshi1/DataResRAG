@@ -1,10 +1,13 @@
 import numpy as np
 from sentence_transformers import SentenceTransformer
 from pinecone import Pinecone
+from transformers import pipeline
+
+
 
 # Initialize Pinecone and connect to the index
-api_key = "REDACTED"
-course_description_index_name = "course-descriptions"
+api_key = "pcsk_2jV2Ge_7K1scdaDQtdnBxtLte8hp7VczDzUAQWopd8ZgYP48Lx2Rm4zuppYg2qjT2WseGg"
+course_description_index_name = "course-descriptions-combined"
 
 pc = Pinecone(api_key=api_key)
 course_description_index = pc.Index(course_description_index_name)
@@ -71,9 +74,21 @@ def suggest_courses():
     for suggestion in suggestions:
         print(f"Course ID: {suggestion['course_id']}")
         print(f"Similarity Score: {suggestion['similarity_score']:.4f}")
-        print(f"Description: {suggestion['description']}")
+        print(f"Description: {summarize_description(suggestion['description'])}")
         print(f"Units: {suggestion['units']}")
         print("---")
+
+
+# summarizing model to make course descriptions shorter (dont need this)
+# Load the summarization model
+summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+
+# Function to generate a short summary using BART model
+def summarize_description(description):
+    # Use BART for summarization
+    summarized = summarizer(description, max_length=50, min_length=25, do_sample=False)
+    return summarized[0]['summary_text'] if summarized else description
+
 
 # Run the function
 suggest_courses()
