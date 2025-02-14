@@ -7,9 +7,13 @@ from langchain_community.chat_models import ChatOpenAI
 from langchain_openai import ChatOpenAI
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
+from dotenv import load_dotenv
+load_dotenv()
+
+
 # Set API keys
 PINECONE_API_KEY = "REDACTED"
-OPENAI_API_KEY = os.getenv(OPENAI_API_KEY)
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 # Initialize Pinecone
 pc = Pinecone(api_key=PINECONE_API_KEY)
