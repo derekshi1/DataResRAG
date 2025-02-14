@@ -1,5 +1,6 @@
 import os
 import numpy as np
+import streamlit as st
 from sentence_transformers import SentenceTransformer
 from pinecone import Pinecone
 from langchain_community.llms import OpenAI
@@ -8,6 +9,8 @@ from langchain_openai import ChatOpenAI
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
 from dotenv import load_dotenv
+import time
+
 load_dotenv()
 
 
@@ -26,23 +29,26 @@ model = SentenceTransformer('all-MiniLM-L6-v2')
 # Initialize OpenAI or use a free alternative (e.g., Hugging Face)
 llm = ChatOpenAI(temperature=0.5, model_name="gpt-3.5-turbo", openai_api_key=OPENAI_API_KEY)
 
-# Function to query Pinecone and retrieve similar courses
+st.title("📚 AI-Powered Course Recommendation")
+st.subheader("Find the best courses based on your interests!")
+
+# User input
+user_interest = st.text_input("Enter your academic interest (e.g., AI, Data Science, Psychology):")
+
+# Function to query Pinecone
 def query_courses(user_interest, top_k=5):
     """
     Query the Pinecone index for courses most relevant to the user's interest.
     """
     try:
-        # Generate user input embedding
         user_embedding = model.encode(user_interest).tolist()
 
-        # Query Pinecone
         results = course_description_index.query(
             vector=user_embedding,
             top_k=top_k,
             include_metadata=True
         )
 
-        # Format results
         suggestions = []
         for match in results["matches"]:
             suggestions.append({
@@ -54,13 +60,13 @@ def query_courses(user_interest, top_k=5):
         return suggestions
 
     except Exception as e:
-        print(f"An error occurred: {e}")
+        st.error(f"An error occurred: {e}")
         return []
 
-# Use LangChain to format the response using an LLM
+# Format course suggestions using LangChain
 def format_course_suggestions(suggestions, user_interest):
     """
-    Use a language model to format and enhance the course recommendations.
+    Use a language model to format and enhance course recommendations.
     """
     prompt_template = PromptTemplate(
         input_variables=["user_interest", "course_list"],
@@ -70,7 +76,7 @@ def format_course_suggestions(suggestions, user_interest):
 
         {course_list}
 
-        Format the response in a professional yet engaging way, including course IDs and descriptions.
+        Format the response professionally while making it engaging.
         """
     )
 
@@ -78,32 +84,42 @@ def format_course_suggestions(suggestions, user_interest):
         [f"- **{s['course_id']}**: {s['description']} (Units: {s['units']})" for s in suggestions]
     )
 
-    # Generate a response using the LLM
     chain = LLMChain(llm=llm, prompt=prompt_template)
     response = chain.run(user_interest=user_interest, course_list=course_list_str)
 
     return response
 
-# Main function to interact with the user
-def suggest_courses():
-    """
-    Get user input, query Pinecone, and use LLM to generate a response.
-    """
-    user_interest = input("Enter your interest: ").strip()
-    if not user_interest:
-        print("No interest provided. Please try again.")
-        return
+# Button to get recommendations
+if st.button("🔍 Find Courses"):
+    if user_interest:
+        with st.spinner("🔎 Searching for the best courses..."):
+            progress_bar = st.progress(0)
+            status_text = st.empty()
 
-    print("\nSearching for relevant courses...")
-    suggestions = query_courses(user_interest, top_k=5)
+            # Fake loading animation for effect
+            for percent in range(0, 101, 10):
+                time.sleep(0.3)  # Simulate search time
+                progress_bar.progress(percent)
+                if percent < 30:
+                    status_text.write("📡 Connecting to AI models...")
+                elif percent < 60:
+                    status_text.write("📊 Analyzing course descriptions...")
+                elif percent < 90:
+                    status_text.write("🧠 Applying smart recommendations...")
+                else:
+                    status_text.write("🚀 Almost done!")
 
-    if not suggestions:
-        print("No matching courses found. Try a different input.")
-        return
+            progress_bar.empty()  # Remove progress bar when done
+            status_text.empty()
 
-    # Generate formatted response
-    formatted_response = format_course_suggestions(suggestions, user_interest)
-    print("\n" + formatted_response)
+        # Fetch course suggestions
+        suggestions = query_courses(user_interest, top_k=5)
 
-# Run the function
-suggest_courses()
+        if suggestions:
+            formatted_response = format_course_suggestions(suggestions, user_interest)
+            st.markdown("## 🎓 Recommended Courses:")
+            st.markdown(formatted_response)
+        else:
+            st.warning("⚠️ No matching courses found. Try a different input.")
+    else:
+        st.error("🚨 Please enter a valid interest.")
