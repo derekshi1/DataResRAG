@@ -16,7 +16,7 @@ load_dotenv()
 
 # Set API keys
 PINECONE_API_KEY = "REDACTED"
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+OPENAI_API_KEY = "***REMOVED***"
 
 # Initialize Pinecone
 pc = Pinecone(api_key=PINECONE_API_KEY)
@@ -71,7 +71,11 @@ def format_course_suggestions(suggestions, user_interest):
     prompt_template = PromptTemplate(
         input_variables=["user_interest", "course_list"],
         template="""
-        Based on the user's interest in "{user_interest}", suggest relevant courses in a structured way.
+        Based on the user's interest in "{user_interest}", suggest relevant courses in a structured way. 
+        
+        Explain your thought process step by step. List exactly five courses. Format class name as NAME #. For example, STATS 15, STATS M148. Non-examples" stats-147.
+        Have three bullet points per class: Description, Prerequisites, and Units.
+
         Here are some course matches:
 
         {course_list}
