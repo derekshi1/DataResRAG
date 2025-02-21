@@ -16,7 +16,7 @@ load_dotenv()
 
 # Set API keys
 PINECONE_API_KEY = "REDACTED"
-OPENAI_API_KEY = "***REMOVED***"
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 # Initialize Pinecone
 pc = Pinecone(api_key=PINECONE_API_KEY)
