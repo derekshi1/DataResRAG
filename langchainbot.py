@@ -26,16 +26,13 @@ course_description_index = pc.Index(course_description_index_name)
 # Load Sentence Transformer model for embeddings
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
-# Initialize OpenAI or use a free alternative (e.g., Hugging Face)
 llm = ChatOpenAI(temperature=0.5, model_name="gpt-3.5-turbo", openai_api_key=OPENAI_API_KEY)
 
 st.title("📚 AI-Powered Course Recommendation")
 st.subheader("Find the best courses based on your interests!")
 
-# User input
 user_interest = st.text_input("Enter your academic interest (e.g., AI, Data Science, Psychology):")
 
-# Function to query Pinecone
 def query_courses(user_interest, top_k=5):
     """
     Query the Pinecone index for courses most relevant to the user's interest.
@@ -51,9 +48,11 @@ def query_courses(user_interest, top_k=5):
 
         suggestions = []
         for match in results["matches"]:
+            percentage_match = round(match["score"] * 100, 2)
             suggestions.append({
                 "course_id": match["id"],
                 "similarity_score": match["score"],
+                "percentage_match": percentage_match,
                 "description": match["metadata"].get("description", "No description available"),
                 "units": match["metadata"].get("units", "Unknown")
             })
@@ -81,7 +80,7 @@ def format_course_suggestions(suggestions, user_interest):
     )
 
     course_list_str = "\n".join(
-        [f"- **{s['course_id']}**: {s['description']} (Units: {s['units']})" for s in suggestions]
+        [f"- **{s['course_id']}** (Match: {s['percentage_match']}%): {s['description']} (Units: {s['units']})" for s in suggestions]
     )
 
     chain = LLMChain(llm=llm, prompt=prompt_template)
@@ -119,6 +118,14 @@ if st.button("🔍 Find Courses"):
             formatted_response = format_course_suggestions(suggestions, user_interest)
             st.markdown("## 🎓 Recommended Courses:")
             st.markdown(formatted_response)
+
+            # Display a bar chart of match percentages
+            st.subheader("Match Percentages")
+            chart_data = {
+                "Course": [s['course_id'] for s in suggestions],
+                "Match %": [s['percentage_match'] for s in suggestions]
+            }
+            st.bar_chart(chart_data, x="Course", y="Match %")
         else:
             st.warning("⚠️ No matching courses found. Try a different input.")
     else:
