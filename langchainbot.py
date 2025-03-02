@@ -10,6 +10,7 @@ from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
 from dotenv import load_dotenv
 import time
+import re
 
 load_dotenv()
 
@@ -49,18 +50,34 @@ def query_courses(user_interest, top_k=5):
         suggestions = []
         for match in results["matches"]:
             percentage_match = round(match["score"] * 100, 2)
+            description = match["metadata"].get("description", "No description available")
+            units = match["metadata"].get("units", "Unknown")
+
+            # Extract and remove requisite courses from description
+            requisite_pattern = re.search(r"Requisites?:\s*([^\.]+)", description)
+            requisite_courses = requisite_pattern.group(1) if requisite_pattern else "None"
+
+            # Remove requisites from the description
+            description_cleaned = re.sub(r"Requisites?:\s*([^\.]+)\.", "", description).strip()
+
+            # Extract units correctly using regex
+            units_pattern = re.search(r"Units:\s*([\d.]+)", description)
+            extracted_units = units_pattern.group(1) if units_pattern else units  # Default to existing metadata if missing
+
             suggestions.append({
                 "course_id": match["id"],
                 "similarity_score": match["score"],
                 "percentage_match": percentage_match,
-                "description": match["metadata"].get("description", "No description available"),
-                "units": match["metadata"].get("units", "Unknown")
+                "description": description_cleaned,  # Store cleaned description
+                "requisites": requisite_courses,
+                "units": extracted_units
             })
         return suggestions
 
     except Exception as e:
         st.error(f"An error occurred: {e}")
         return []
+
 
 # Format course suggestions using LangChain
 def format_course_suggestions(suggestions, user_interest):
@@ -112,21 +129,18 @@ if st.button("🔍 Find Courses"):
             status_text.empty()
 
         # Fetch course suggestions
-        suggestions = query_courses(user_interest, top_k=5)
+    suggestions = query_courses(user_interest, top_k=5)
 
-        if suggestions:
-            formatted_response = format_course_suggestions(suggestions, user_interest)
-            st.markdown("## 🎓 Recommended Courses:")
-            st.markdown(formatted_response)
+    if suggestions:
+        st.markdown("## 🎓 Recommended Courses:")
 
-            # Display a bar chart of match percentages
-            st.subheader("Match Percentages")
-            chart_data = {
-                "Course": [s['course_id'] for s in suggestions],
-                "Match %": [s['percentage_match'] for s in suggestions]
-            }
-            st.bar_chart(chart_data, x="Course", y="Match %")
-        else:
-            st.warning("⚠️ No matching courses found. Try a different input.")
+    for s in suggestions:
+        st.markdown(f"**{s['course_id']}** ({s['percentage_match']}% match)")
+        st.markdown(f"📖 **Description:** {s['description']}")  # Cleaned description
+        if s['requisites'] != "None":
+            st.markdown(f"📘 **Requisites:** {s['requisites']}")  # Display requisites separately
+        st.markdown(f"📚 **Units:** {s['units']}")
+        st.markdown("---")  # Separator for readability
+
     else:
-        st.error("🚨 Please enter a valid interest.")
+        st.warning("⚠️ No matching courses found. Try a different input.")
