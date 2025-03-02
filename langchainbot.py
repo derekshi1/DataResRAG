@@ -20,7 +20,7 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 # Initialize Pinecone
 pc = Pinecone(api_key=PINECONE_API_KEY)
-course_description_index_name = "course-descriptions"
+course_description_index_name = "course-descriptions-combined"
 course_description_index = pc.Index(course_description_index_name)
 
 # Load Sentence Transformer model for embeddings
@@ -32,6 +32,19 @@ st.title("📚 AI-Powered Course Recommendation")
 st.subheader("Find the best courses based on your interests!")
 
 user_interest = st.text_input("Enter your academic interest (e.g., AI, Data Science, Psychology):")
+
+def get_progress_bar_html(percentage):
+    """
+    Generates an HTML-based progress bar with a dynamic color gradient.
+    - Green (High Match) → Yellow (Medium Match) → Red (Low Match)
+    """
+    color = f"rgb({255 - int(2.55 * percentage)}, {int(2.55 * percentage)}, 50)"  # Dynamic RGB color
+
+    return f"""
+    <div style="width: 100%; background-color: #eee; border-radius: 5px; height: 15px; position: relative; margin-bottom: 5px;">
+        <div style="width: {percentage}%; height: 100%; background-color: {color}; border-radius: 5px;"></div>
+    </div>
+    """
 
 def query_courses(user_interest, top_k=5):
     """
@@ -119,16 +132,20 @@ if st.button("🔍 Find Courses"):
         # Fetch course suggestions
         suggestions = query_courses(user_interest, top_k=5)
 
-        if suggestions:
-            st.markdown("## 🎓 Recommended Courses:")
+    if suggestions:
+        st.markdown("## 🎓 Recommended Courses:")
 
-            for s in suggestions:
-                st.markdown(f"**{s['course_id']}** ({s['percentage_match']}% match)")
-                st.markdown(f"📚 **Description:** {s['description']}")  # Cleaned description
-                if s['requisites'] != "None":
-                    st.markdown(f"📝 **Requisites:** {s['requisites']}")  # Display requisites separately
-                st.markdown(f"📚 **Units:** {s['units']}")
-                st.markdown(f"🧠 **Reasoning:** {s['metadata']['reasoning']}")  # Include reasoning
-                st.markdown("---")  # Separator for readability
+        for s in suggestions:
+            st.markdown(f"### {s['course_id']} ({s['percentage_match']}% match)")
+                    
+            # Render the colored progress bar
+            st.markdown(get_progress_bar_html(s["percentage_match"]), unsafe_allow_html=True)
+
+            st.markdown(f"📚 **Description:** {s['description']}")  
+            if s['requisites'] != "None":
+                st.markdown(f"📝 **Requisites:** {s['requisites']}")  
+            st.markdown(f"📚 **Units:** {s['units']}")
+            st.markdown(f"🧠 **Reasoning:** {s['metadata']['reasoning']}")  
+            st.markdown("---")  
         else:
             st.warning("⚠️ No matching courses found. Try a different input.")
