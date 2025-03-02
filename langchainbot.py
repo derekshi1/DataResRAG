@@ -14,7 +14,6 @@ import re
 
 load_dotenv()
 
-
 # Set API keys
 PINECONE_API_KEY = "pcsk_2uKCF8_5LSz4hbio5WP681G6ThuJp3vBDxx7tuWSrM2RXrviFnwe7LmvEB5YVDGmm3mN5w"
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
@@ -64,46 +63,35 @@ def query_courses(user_interest, top_k=5):
             units_pattern = re.search(r"Units:\s*([\d.]+)", description)
             extracted_units = units_pattern.group(1) if units_pattern else units  # Default to existing metadata if missing
 
+            # Generate reasoning using LLM
+            reasoning_prompt = f"""
+            The user is interested in "{user_interest}". The following course has been matched:
+            - **Course ID:** {match["id"]}
+            - **Description:** {description_cleaned}
+            - **Match Score:** {percentage_match}%
+            - **Units:** {extracted_units}
+            
+            Explain in a concise way why this course is a good match for the user’s interest. If the match is not good, then say that it's not a good match. Be specific about subtopics in the course description and how they relate to the user's input. Make the reasoning no more than 4 sentences. Make sure to be specific on how aspects of the course description relates to the user's input.
+            """
+
+            reasoning_response = llm.invoke(reasoning_prompt)
+            reasoning_text = str(reasoning_response.content).strip()
+
             suggestions.append({
                 "course_id": match["id"],
                 "similarity_score": match["score"],
                 "percentage_match": percentage_match,
                 "description": description_cleaned,  # Store cleaned description
                 "requisites": requisite_courses,
-                "units": extracted_units
+                "units": extracted_units,
+                "metadata": {"reasoning": reasoning_text}  # Add reasoning as metadata
             })
+
         return suggestions
 
     except Exception as e:
         st.error(f"An error occurred: {e}")
         return []
-
-
-# Format course suggestions using LangChain
-def format_course_suggestions(suggestions, user_interest):
-    """
-    Use a language model to format and enhance course recommendations.
-    """
-    prompt_template = PromptTemplate(
-        input_variables=["user_interest", "course_list"],
-        template="""
-        Based on the user's interest in "{user_interest}", suggest relevant courses in a structured way.
-        Here are some course matches:
-
-        {course_list}
-
-        Format the response professionally while making it engaging.
-        """
-    )
-
-    course_list_str = "\n".join(
-        [f"- **{s['course_id']}** (Match: {s['percentage_match']}%): {s['description']} (Units: {s['units']})" for s in suggestions]
-    )
-
-    chain = LLMChain(llm=llm, prompt=prompt_template)
-    response = chain.run(user_interest=user_interest, course_list=course_list_str)
-
-    return response
 
 # Button to get recommendations
 if st.button("🔍 Find Courses"):
@@ -129,18 +117,18 @@ if st.button("🔍 Find Courses"):
             status_text.empty()
 
         # Fetch course suggestions
-    suggestions = query_courses(user_interest, top_k=5)
+        suggestions = query_courses(user_interest, top_k=5)
 
-    if suggestions:
-        st.markdown("## 🎓 Recommended Courses:")
+        if suggestions:
+            st.markdown("## 🎓 Recommended Courses:")
 
-    for s in suggestions:
-        st.markdown(f"**{s['course_id']}** ({s['percentage_match']}% match)")
-        st.markdown(f"📖 **Description:** {s['description']}")  # Cleaned description
-        if s['requisites'] != "None":
-            st.markdown(f"📘 **Requisites:** {s['requisites']}")  # Display requisites separately
-        st.markdown(f"📚 **Units:** {s['units']}")
-        st.markdown("---")  # Separator for readability
-
-    else:
-        st.warning("⚠️ No matching courses found. Try a different input.")
+            for s in suggestions:
+                st.markdown(f"**{s['course_id']}** ({s['percentage_match']}% match)")
+                st.markdown(f"📚 **Description:** {s['description']}")  # Cleaned description
+                if s['requisites'] != "None":
+                    st.markdown(f"📝 **Requisites:** {s['requisites']}")  # Display requisites separately
+                st.markdown(f"📚 **Units:** {s['units']}")
+                st.markdown(f"🧠 **Reasoning:** {s['metadata']['reasoning']}")  # Include reasoning
+                st.markdown("---")  # Separator for readability
+        else:
+            st.warning("⚠️ No matching courses found. Try a different input.")
