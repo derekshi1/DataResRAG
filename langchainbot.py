@@ -84,7 +84,7 @@ def query_courses(user_interest, top_k=5):
             - **Match Score:** {percentage_match}%
             - **Units:** {extracted_units}
             
-            Explain in a concise way why this course is a good match for the user’s interest. If the match is not good, then say that it's not a good match. Be specific about subtopics in the course description and how they relate to the user's input. Make the reasoning no more than 4 bullet points. Do not give trivial information. Make sure to be specific on how aspects of the course description relates to the user's input. Vary sentence structure and do not explicitly mention user input - focus on the actual input.
+            Explain in a concise way why this course is a good match for the user’s interest. If the match is not good, then say that it's not a good match. Be specific about subtopics in the course description and how they relate to the user's input. Make the reasoning no more than 4 bullet points. Do not give trivial information. Make sure to be specific on how aspects of the course description relates to the user's input. Vary sentence structure and do not explicitly mention user input - focus on the actual input and reformat anytime you reference from the database or the input to make sure it is grammatically correct.
             """
 
             reasoning_response = llm.invoke(reasoning_prompt)
