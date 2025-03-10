@@ -14,7 +14,7 @@ from langchain.tools import Tool
 from dotenv import load_dotenv
 import time
 import re
-
+from course_names import course_names
 
 load_dotenv()
 
@@ -121,6 +121,7 @@ def query_courses(user_interest, top_k=5):
            reasoning_prompt = f"""
            The user is interested in "{user_interest}". The following course has been matched:
            - **Course ID:** {match["id"]}
+           - **Course Name:** {course_names[match["id"]]}
            - **Description Summary:** {summary_text}
            - **Match Score:** {percentage_match}%
            - **Units:** {extracted_units}
@@ -189,7 +190,7 @@ if st.button("🔍 Find Courses"):
 
 
        for s in suggestions:
-           st.markdown(f"### {s['course_id']} ({s['percentage_match']}% match)")
+           st.markdown(f"### {s['course_id']} {course_names[s['course_id']]} ({s['percentage_match']}% match)")
            st.markdown(get_progress_bar_html(s["percentage_match"]), unsafe_allow_html=True)   
            st.markdown("📖 **Summary:**")
            st.markdown(s["description"])
@@ -208,6 +209,29 @@ if st.button("🔍 Find Courses"):
        else:
            st.warning("⚠️ No matching courses found. Try a different input.")
 
+
+# Maintain chat history
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+# Chatbot-style Q&A for follow-up questions
+user_message = st.text_input("Ask a follow-up question...", key="chat_input")
+if user_message:
+    st.session_state.messages.append({"role": "user", "content": user_message})
+
+    # Process user question using LLM
+    follow_up_prompt = f"User asked: {user_message}\n\nRespond concisely with helpful information."
+    follow_up_response = llm.invoke(follow_up_prompt)
+    
+    response_content = follow_up_response.content.strip()
+    st.session_state.messages.append({"role": "assistant", "content": response_content})
+
+# Display chat history
+for msg in st.session_state.messages:
+    if msg["role"] == "user":
+        st.chat_message("user").write(msg["content"])
+    else:
+        st.chat_message("assistant").write(msg["content"])
 
 
 
