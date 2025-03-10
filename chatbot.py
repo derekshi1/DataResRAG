@@ -47,7 +47,11 @@ if "memory" not in st.session_state:
 
 # Function: Get Course Recommendations
 def get_course_recommendations(query):
-    """Queries Pinecone for relevant courses."""
+    """Queries Pinecone for relevant courses.
+    - Mention similar courses or related topics
+    - Avoid overly technical jargon
+    - Be interactive with the user (ask if they have any further questions about the topic, ask followup questions for clarity if needed)
+    - Keep responses at least 1-2 sentences"""
     user_embedding = model.encode(query).tolist()
     results = course_description_index.query(vector=user_embedding, top_k=3, include_metadata=True)
 
@@ -92,9 +96,12 @@ def explain_topic(topic):
     """Uses LLM to explain industry topics concisely."""
     explanation_prompt = f"""
     Explain the topic "{topic}" concisely:
-    - Key insights
+    - Key insights, and justified responses
     - Real-world applications
+    - Mention similar courses or related topics
     - Avoid overly technical jargon
+    - Be interactive with the user (ask if they have any further questions about the topic, ask followup questions for clarity if needed)
+    - Keep responses at least 1-2 sentences
     """
     chain = LLMChain(llm=llm, prompt=PromptTemplate(input_variables=["topic"], template=explanation_prompt))
     return chain.run(topic=topic)
