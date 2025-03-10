@@ -1,6 +1,6 @@
 import json
 import pandas as pd
-import nummpy
+import numpy
 from sentence_transformers import SentenceTransformer
 
 # Load the SentenceTransformer model
